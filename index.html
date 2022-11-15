@@ -9,11 +9,14 @@
         <meta name="author" content="Luisa Mesquita Oliveira Ribeiro">
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <script src="script.js"></script>
         <script src="jquery-3.6.1.min.js"></script>
         <title>Point dos Games</title>
     </head>
 
-    <body onload="carregaInfos()">
+    <body>
         <!-- Inicio Cabeçalho -->
         <nav class="navigation-menu">
             <div class="section-row-flex-start section-row-center-xxxs">
@@ -54,7 +57,8 @@
         <!-- Fim Cabeçalho -->
 
         <!-- Inicio Seção Destaques -->
-        <section id="secao-destaques" class="section background-purple">
+        <section onload="carregaInfoDestaques()" 
+            id="secao-destaques" class="section background-purple">
             <div class="section-inner section-column-gap-25 width-100">
                 <header class="text-align-center">
                     <h2>Destaques</h2>
@@ -64,43 +68,39 @@
                     data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <article class="section-row-gap-50 section-column-xxs height-200px-xxxxs">
-                                <iframe class="width-140 height-410px"
+                            <article value="resident-evil-2-2019" class="section-row-gap-50 section-column-xxs height-200px-xxxxs">
+                                <!-- <iframe class="width-140 height-410px"
                                     src="https://www.youtube.com/embed/VyymfKuMEXI" 
-                                    frameborder="0" allowfullscreen>
+                                    frameborder="0" allowfullscreen> -->
                                 </iframe>
                                 <section class="width-100 section-column-gap-25">
                                     <header>
-                                        <h3>Resident Evil 2</h3>
+                                        <h3 id="nomeJogo"></h3>
                                     </header>
                                     <div class="section-column-gap-16">
-                                        <div class="truncate-description">
+                                        <div id="descricao" class="truncate-description">
                                             <span class="font-weight-700">Sobre: </span>
-                                            Em setembro de 1998, o policial novato Leon Kennedy e Claire Redfield, a 
-                                            procura de seu irmão Cris, chegam a Raccoon City. Ao chegarem a cidade, os personagens 
-                                            a encontram completamente deserta, em que um vírus maligno (T-virus) tomou 
-                                            conta dos residentes. Esse vírus transformou os habitantes em zumbis comedores de carne
-                                            humana, que vagam pelas ruas em busca de sobreviventes.
+                                            
                                         </div>
                                         <div class="section-row-gap-35 section-column-xxs">
-                                            <div class="truncate-title">
+                                            <div id="publisher" class="truncate-title">
                                                 <span class="font-weight-700">Publisher: </span>
                                                 <span>Capcom</span>
                                             </div>
-                                            <div class="truncate-title">
+                                            <div id="lancamento" class="truncate-title">
                                                 <span class="font-weight-700">Lançamento: </span>
                                                 <span>Janeiro, 2019</span>
                                             </div>
                                         </div>
-                                        <div>
+                                        <div id="plataformas">
                                             <span class="font-weight-700">Plataformas: </span>
                                             <span>Steam, PlayStation 4, Xbox One, Microsoft Windows, Amazon Luna, PlayStation 5, Xbox Series X/S</span>
                                         </div>
-                                        <div>
+                                        <div id="genero">
                                             <span class="font-weight-700">Gênero: </span>
                                             <span>Horror e Sobrevivência, Terror, Ação, Shooter</span>
                                         </div>
-                                        <div>
+                                        <div id="avaliacao">
                                             <span class="font-weight-700">Avaliação: </span>
                                             <span class="font-score">93</span>
                                         </div>
@@ -112,17 +112,17 @@
                             </article>
                         </div>
                         <div class="carousel-item">
-                            <article class="section-row-gap-50 section-column-xxs height-200px-xxxxs">
-                                <iframe class="width-140 height-440px"
+                            <article value="super-mario-3d-world-bowsers-fury" class="section-row-gap-50 section-column-xxs height-200px-xxxxs">
+                                <!-- <iframe class="width-140 height-440px"
                                     src="https://www.youtube.com/embed/OPAQA_P_RQY" 
-                                    frameborder="0" allowfullscreen>
+                                    frameborder="0" allowfullscreen> -->
                                 </iframe>
                                 <section class="width-100 section-column-gap-25">
-                                    <header>
+                                    <header id="nomeJogo">
                                         <h3>Super Mario 3D World + Bowser’s Fury</h3>
                                     </header>
                                     <div class="section-column-gap-16">
-                                        <div class="truncate-description">
+                                        <div id="descricao" class="truncate-description">
                                             <span class="font-weight-700">Sobre: </span>
                                             O jogo Super Mario 3D World + Bowser’s Fury conta com a mesma jogabilidade 
                                             cooperativa dinâmica, fases criativas e power ups do jogo original, mas com 
@@ -133,24 +133,24 @@
                                             furioso!
                                         </div>
                                         <div class="section-row-gap-35 section-column-xxs">
-                                            <div class="truncate-title">
+                                            <div id="publisher" class="truncate-title">
                                                 <span class="font-weight-700">Publisher: </span>
                                                 <span>Nintendo</span>
                                             </div>
-                                            <div class="truncate-title">
+                                            <div id="lancamento" class="truncate-title">
                                                 <span class="font-weight-700">Lançamento: </span>
                                                 <span>Fevereiro, 2021</span>
                                             </div>
                                         </div>
-                                        <div>
+                                        <div id="plataformas">
                                             <span class="font-weight-700">Plataformas: </span>
                                             <span>Nintendo Switch</span>
                                         </div>
-                                        <div>
+                                        <div id="genero">
                                             <span class="font-weight-700">Gênero: </span>
                                             <span>Plataforma, Ação, Aventura</span>
                                         </div>
-                                        <div>
+                                        <div id="avaliacao">
                                             <span class="font-weight-700">Avaliação: </span>
                                             <span class="font-score">94</span>
                                         </div>
@@ -162,17 +162,17 @@
                             </article>
                         </div>
                         <div class="carousel-item">
-                            <article class="section-row-gap-50 section-column-xxs height-200px-xxxxs">
-                                <iframe class="width-100 height-440px"
+                            <article value="god-of-war-2" class="section-row-gap-50 section-column-xxs height-200px-xxxxs">
+                                <!-- <iframe class="width-100 height-440px"
                                     src="https://www.youtube.com/embed/FyIwEFXOcaE" 
-                                    frameborder="0" allowfullscreen>
+                                    frameborder="0" allowfullscreen> -->
                                 </iframe>
                                 <section class="width-100 section-column-gap-25">
-                                    <header>
+                                    <header id="nomeJogo">
                                         <h3>God of War</h3>
                                     </header>
                                     <div class="section-column-gap-16">
-                                        <div class="truncate-description">
+                                        <div id="descricao" class="truncate-description">
                                             <span class="font-weight-700">Sobre: </span>
                                             Kratos é pai novamente. Como mentor e protetor de Atreus, um filho determinado a ganhar seu respeito, 
                                             ele é forçado a encarar e controlar a fúria que há muito tempo o define enquanto viaja por um mundo 
@@ -182,25 +182,25 @@
                                             Fantasma de Esparta.
                                         </div>
                                         <div class="section-row-gap-35 section-column-xxs">
-                                            <div class="truncate-title">
+                                            <div id="publisher" class="truncate-title">
                                                 <span class="font-weight-700">Publisher: </span>
                                                 <span>Sony Interactive Entertainment</span>
                                             </div>
-                                            <div class="truncate-title">
+                                            <div id="lancamento" class="truncate-title">
                                                 <span class="font-weight-700">Lançamento: </span>
                                                 <span>Abril, 2018</span>
                                             </div>
                                         </div>
-                                        <div>
+                                        <div id="plataformas">
                                             <span class="font-weight-700">Plataformas: </span>
                                             <span>Steam, Epic Games, PlayStation 4</span>
                                         </div>
-                                        <div>
+                                        <div id="genero">
                                             <span class="font-weight-700">Gênero: </span>
                                             <span>Ação, Aventura, RPG, Luta, </span>
                                             <span class="font-style-italic">Hack and Slash</span>
                                         </div>
-                                        <div>
+                                        <div id="avaliacao">
                                             <span class="font-weight-700">Avaliação: </span>
                                             <span class="font-score">98</span>
                                         </div>
@@ -212,17 +212,17 @@
                             </article>
                         </div>
                         <div class="carousel-item">
-                            <article class="section-row-gap-50 section-column-xxs height-200px-xxxxs">
-                                <iframe class="width-100 height-440px"
+                            <article value="hollow-knight" class="section-row-gap-50 section-column-xxs height-200px-xxxxs">
+                                <!-- <iframe class="width-100 height-440px"
                                     src="https://www.youtube.com/embed/UAO2urG23S4" 
-                                    frameborder="0" allowfullscreen>
+                                    frameborder="0" allowfullscreen> -->
                                 </iframe>
                                 <section class="width-100 section-column-gap-25">
-                                    <header>
+                                    <header id="nomeJogo">
                                         <h3>Hollow Knight</h3>
                                     </header>
                                     <div class="section-column-gap-16">
-                                        <div class="truncate-description">
+                                        <div id="descricao" class="truncate-description">
                                             <span class="font-weight-700">Sobre: </span>
                                             O mundo de Hollow Knight é habitado por insetos antropomórficos que viviam em 
                                             uma cidade subterrânea, até que um tipo de contaminação enlouqueceu as criaturas. 
@@ -232,24 +232,24 @@
                                             é tão profundo quanto seu mapa.
                                         </div>
                                         <div class="section-row-gap-35 section-column-xxs">
-                                            <div class="truncate-title">
+                                            <div id="publisher" class="truncate-title">
                                                 <span class="font-weight-700">Publisher: </span>
                                                 <span>Team Cherry</span>
                                             </div>
-                                            <div class="truncate-title">
+                                            <div id="lancamento" class="truncate-title">
                                                 <span class="font-weight-700">Lançamento: </span>
                                                 <span>Fevereiro, 2017</span>
                                             </div>
                                         </div>
-                                        <div>
+                                        <div id="plataforma">
                                             <span class="font-weight-700">Plataformas: </span>
                                             <span>Steam, GoG, PlayStation Store, Nintendo Switch, Microsoft Store, Humble Store</span>
                                         </div>
-                                        <div>
+                                        <div id="genero">
                                             <span class="font-weight-700">Gênero: </span>
                                             <span>Ação, Aventura, Plataforma, Indie, Metroidvania, Fantasia</span>
                                         </div>
-                                        <div>
+                                        <div id="avalicao">
                                             <span class="font-weight-700">Avaliação: </span>
                                             <span class="font-score">96</span>
                                         </div>
@@ -680,14 +680,6 @@
                 </div>
             </div>
         </section>
-    
-            <!-- <div class="section-inner section-column-gap-25 width-100">
-                <h2>Editorial</h2>
-                <div class="section-row-gap-100  section-column-xs">
-
-                </div>
-            </div> -->
-        </section>
         <!-- Fim Seção Sobre/Editorial -->
 
         <!-- Inicio Rodape -->
@@ -710,14 +702,25 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-
-        <script src="script.js"></script>
-        <script>
-            document.body.onload = () => {
-                //maisDetalhesDestaques.onclick = () => carregaMaisDetalhes();
-                let jogoDestaqueEscolhido = document.querySelector()
-                carregaMaisDetalhes();
-            }
-        </script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+        <script
+        src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"
+        ></script>
     </body>
 </html>
