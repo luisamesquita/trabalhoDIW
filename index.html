@@ -11,8 +11,8 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-        <script src="script.js"></script>
         <script src="jquery-3.6.1.min.js"></script>
+        <script src="script.js"></script>
         <title>Point dos Games</title>
     </head>
 
@@ -55,10 +55,15 @@
             </div>
         </nav>
         <!-- Fim Cabeçalho -->
-
+       
         <!-- Inicio Seção Destaques -->
-        <section onload="carregaInfoDestaques()" 
-            id="secao-destaques" class="section background-purple">
+
+        <script>
+            carregaInfoDestaques();
+        </script>
+
+        <section
+            id="secaoDestaques" class="section background-purple">
             <div class="section-inner section-column-gap-25 width-100">
                 <header class="text-align-center">
                     <h2>Destaques</h2>
@@ -69,18 +74,16 @@
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <article value="resident-evil-2-2019" class="section-row-gap-50 section-column-xxs height-200px-xxxxs">
-                                <!-- <iframe class="width-140 height-410px"
-                                    src="https://www.youtube.com/embed/VyymfKuMEXI" 
-                                    frameborder="0" allowfullscreen> -->
-                                </iframe>
+                                <img id="imagemJogo" src=""/>
                                 <section class="width-100 section-column-gap-25">
+                                    <span hidden id="idJogo"></span>
                                     <header>
-                                        <h3 id="nomeJogo"></h3>
+                                        <h3 id="nomeJogo">
+                                        </h3>
                                     </header>
                                     <div class="section-column-gap-16">
                                         <div id="descricao" class="truncate-description">
                                             <span class="font-weight-700">Sobre: </span>
-                                            
                                         </div>
                                         <div class="section-row-gap-35 section-column-xxs">
                                             <div class="truncate-title">
@@ -105,7 +108,11 @@
                                             <span id="avaliacao" class="font-score"></span>
                                         </div>
                                         <div class="section-row-flex-end-left">
-                                            <button id="maisDetalhesDestaques" class="truncate-title">Mais detalhes ...</button>
+                                            <button id="maisDetalhes"
+                                            class="truncate-title"
+                                            onclick="carregaMaisDetalhes()">
+                                                Mais detalhes ...
+                                            </button>
                                         </div>
                                     </div>
                                 </section>
@@ -113,49 +120,44 @@
                         </div>
                         <div class="carousel-item">
                             <article value="super-mario-3d-world-bowsers-fury" class="section-row-gap-50 section-column-xxs height-200px-xxxxs">
-                                <!-- <iframe class="width-140 height-440px"
-                                    src="https://www.youtube.com/embed/OPAQA_P_RQY" 
-                                    frameborder="0" allowfullscreen> -->
-                                </iframe>
+                                <img id="imagemJogo" src=""/>
                                 <section class="width-100 section-column-gap-25">
-                                    <header id="nomeJogo">
-                                        <h3>Super Mario 3D World + Bowser’s Fury</h3>
+                                    <span hidden id="idJogo"></span>
+                                    <header>
+                                        <h3 id="nomeJogo"></h3>
                                     </header>
                                     <div class="section-column-gap-16">
                                         <div id="descricao" class="truncate-description">
                                             <span class="font-weight-700">Sobre: </span>
-                                            O jogo Super Mario 3D World + Bowser’s Fury conta com a mesma jogabilidade 
-                                            cooperativa dinâmica, fases criativas e power ups do jogo original, mas com 
-                                            melhorias adicionais. Em Super Mario 3D World, escolha entre Mario, Luigi, 
-                                            Peach e Toad e parta para salvar o reino Sprixie Kingdom. 
-                                            <br>
-                                            Em Bowser’s Fury, Mario chega ao lago Lake Lapcat e é confrontado por um Bowser 
-                                            furioso!
                                         </div>
                                         <div class="section-row-gap-35 section-column-xxs">
-                                            <div id="publisher" class="truncate-title">
+                                            <div class="truncate-title">
                                                 <span class="font-weight-700">Publisher: </span>
-                                                <span>Nintendo</span>
+                                                <span id="publisher"></span>
                                             </div>
-                                            <div id="lancamento" class="truncate-title">
+                                            <div class="truncate-title">
                                                 <span class="font-weight-700">Lançamento: </span>
-                                                <span>Fevereiro, 2021</span>
+                                                <span id="lancamento"></span>
                                             </div>
                                         </div>
-                                        <div id="plataformas">
+                                        <div>
                                             <span class="font-weight-700">Plataformas: </span>
-                                            <span>Nintendo Switch</span>
+                                            <span id="plataformas"></span>
                                         </div>
                                         <div id="genero">
                                             <span class="font-weight-700">Gênero: </span>
-                                            <span>Plataforma, Ação, Aventura</span>
+                                            <span id="genero"></span>
                                         </div>
-                                        <div id="avaliacao">
+                                        <div>
                                             <span class="font-weight-700">Avaliação: </span>
-                                            <span class="font-score">94</span>
+                                            <span id="avaliacao" class="font-score"></span>
                                         </div>
                                         <div class="section-row-flex-end-left">
-                                            <button id="maisDetalhesDestaques" class="truncate-title">Mais detalhes ...</button>
+                                            <button id="maisDetalhes"
+                                            class="truncate-title"
+                                            onclick="carregaMaisDetalhes()">
+                                                Mais detalhes ...
+                                            </button>
                                         </div>
                                     </div>
                                 </section>
@@ -163,49 +165,44 @@
                         </div>
                         <div class="carousel-item">
                             <article value="god-of-war-2" class="section-row-gap-50 section-column-xxs height-200px-xxxxs">
-                                <!-- <iframe class="width-100 height-440px"
-                                    src="https://www.youtube.com/embed/FyIwEFXOcaE" 
-                                    frameborder="0" allowfullscreen> -->
-                                </iframe>
+                                <img id="imagemJogo" src=""/>
                                 <section class="width-100 section-column-gap-25">
-                                    <header id="nomeJogo">
-                                        <h3>God of War</h3>
+                                    <span hidden id="idJogo"></span>
+                                    <header>
+                                        <h3 id="nomeJogo"></h3>
                                     </header>
                                     <div class="section-column-gap-16">
                                         <div id="descricao" class="truncate-description">
                                             <span class="font-weight-700">Sobre: </span>
-                                            Kratos é pai novamente. Como mentor e protetor de Atreus, um filho determinado a ganhar seu respeito, 
-                                            ele é forçado a encarar e controlar a fúria que há muito tempo o define enquanto viaja por um mundo 
-                                            ameaçador com o seu filho. Com a vingança contra os deuses do Olimpo no passado, Kratos agora vive no 
-                                            reino das divindades e monstros nórdicos. É nesse mundo duro e impiedoso que ele deve lutar para 
-                                            sobreviver enquanto ensina seu filho a fazer o mesmo e tenta impedi-lo de repetir os erros cruéis do 
-                                            Fantasma de Esparta.
                                         </div>
                                         <div class="section-row-gap-35 section-column-xxs">
-                                            <div id="publisher" class="truncate-title">
+                                            <div class="truncate-title">
                                                 <span class="font-weight-700">Publisher: </span>
-                                                <span>Sony Interactive Entertainment</span>
+                                                <span id="publisher"></span>
                                             </div>
-                                            <div id="lancamento" class="truncate-title">
+                                            <div class="truncate-title">
                                                 <span class="font-weight-700">Lançamento: </span>
-                                                <span>Abril, 2018</span>
+                                                <span id="lancamento"></span>
                                             </div>
                                         </div>
-                                        <div id="plataformas">
+                                        <div>
                                             <span class="font-weight-700">Plataformas: </span>
-                                            <span>Steam, Epic Games, PlayStation 4</span>
+                                            <span id="plataformas"></span>
                                         </div>
                                         <div id="genero">
                                             <span class="font-weight-700">Gênero: </span>
-                                            <span>Ação, Aventura, RPG, Luta, </span>
-                                            <span class="font-style-italic">Hack and Slash</span>
+                                            <span id="genero"></span>
                                         </div>
-                                        <div id="avaliacao">
+                                        <div>
                                             <span class="font-weight-700">Avaliação: </span>
-                                            <span class="font-score">98</span>
+                                            <span id="avaliacao" class="font-score"></span>
                                         </div>
                                         <div class="section-row-flex-end-left">
-                                            <button id="maisDetalhesDestaques" class="truncate-title">Mais detalhes ...</button>
+                                            <button id="maisDetalhes"
+                                            class="truncate-title"
+                                            onclick="carregaMaisDetalhes()">
+                                                Mais detalhes ...
+                                            </button>
                                         </div>
                                     </div>
                                 </section>
@@ -213,48 +210,44 @@
                         </div>
                         <div class="carousel-item">
                             <article value="hollow-knight" class="section-row-gap-50 section-column-xxs height-200px-xxxxs">
-                                <!-- <iframe class="width-100 height-440px"
-                                    src="https://www.youtube.com/embed/UAO2urG23S4" 
-                                    frameborder="0" allowfullscreen> -->
-                                </iframe>
+                                <img id="imagemJogo" src=""/>
                                 <section class="width-100 section-column-gap-25">
-                                    <header id="nomeJogo">
-                                        <h3>Hollow Knight</h3>
+                                    <span hidden id="idJogo"></span>
+                                    <header>
+                                        <h3 id="nomeJogo"></h3>
                                     </header>
                                     <div class="section-column-gap-16">
                                         <div id="descricao" class="truncate-description">
                                             <span class="font-weight-700">Sobre: </span>
-                                            O mundo de Hollow Knight é habitado por insetos antropomórficos que viviam em 
-                                            uma cidade subterrânea, até que um tipo de contaminação enlouqueceu as criaturas. 
-                                            O Hollow Knight, personagem principal que carrega o nome do jogo, é um tipo de 
-                                            receptáculo criado para combater essa infecção. O mundo já está em ruínas e o jogador 
-                                            apenas encontra registros dessa civilização que supostamente deveria proteger. O enredo
-                                            é tão profundo quanto seu mapa.
                                         </div>
                                         <div class="section-row-gap-35 section-column-xxs">
-                                            <div id="publisher" class="truncate-title">
+                                            <div class="truncate-title">
                                                 <span class="font-weight-700">Publisher: </span>
-                                                <span>Team Cherry</span>
+                                                <span id="publisher"></span>
                                             </div>
-                                            <div id="lancamento" class="truncate-title">
+                                            <div class="truncate-title">
                                                 <span class="font-weight-700">Lançamento: </span>
-                                                <span>Fevereiro, 2017</span>
+                                                <span id="lancamento"></span>
                                             </div>
                                         </div>
-                                        <div id="plataforma">
+                                        <div>
                                             <span class="font-weight-700">Plataformas: </span>
-                                            <span>Steam, GoG, PlayStation Store, Nintendo Switch, Microsoft Store, Humble Store</span>
+                                            <span id="plataformas"></span>
                                         </div>
                                         <div id="genero">
                                             <span class="font-weight-700">Gênero: </span>
-                                            <span>Ação, Aventura, Plataforma, Indie, Metroidvania, Fantasia</span>
+                                            <span id="genero"></span>
                                         </div>
-                                        <div id="avalicao">
+                                        <div>
                                             <span class="font-weight-700">Avaliação: </span>
-                                            <span class="font-score">96</span>
+                                            <span id="avaliacao" class="font-score"></span>
                                         </div>
                                         <div class="section-row-flex-end-left">
-                                            <button id="maisDetalhesDestaques" class="truncate-title">Mais detalhes ...</button>
+                                            <button id="maisDetalhes"
+                                            class="truncate-title"
+                                            onclick="carregaMaisDetalhes()">
+                                                Mais detalhes ...
+                                            </button>
                                         </div>
                                     </div>
                                 </section>
@@ -285,7 +278,10 @@
         </section>
         <!-- Fim Seção Destaques -->
 
-        <!-- USAR FLEX GRID -->
+
+        <script>
+            carregaInfoLancamentos();
+        </script>
 
         <!-- Inicio Seção Lançamentos -->
         <section id = "secao-lancamentos" class="section background-orange">
@@ -319,135 +315,154 @@
                 <div class="section-row-gap-16 section-column-xs">
                     <a class="section-column-gap-16 --font-size-tiny" href="javascript::void(0)">
                         <div class="section-row-gap-25">
+                            <span hidden id="idJogo"></span>
                             <div class="truncate-title-item">
-                                <span>Street Figther V </span>
+                                <span id="nomeJogo"></span>
                             </div>
                             <div class="truncate-title-item">
-                                <span>89</span>
+                                <span id="valor"></span>
                             </div>
                         </div>
-                        <iframe class="width-250px heigth-200px"
-                            src="https://www.youtube.com/embed/p-OvEANlf6Y" 
-                            frameborder="0" allowfullscreen>
-                        </iframe>
-                        <button id="maisDetalhesLancamento" class="truncate-title">Mais detalhes ...</button>
+                        <img id="imagemJogo" src=""/>
+                        <button id="maisDetalhesDestaques"
+                        class="truncate-title"
+                        onclick="carregaMaisDetalhes()">
+                            Mais detalhes ...
+                        </button>
                     </a>
                     <div class="width-2"></div>
                     <a class="section-column-gap-16 --font-size-tiny" href="javascript::void(0)">
+                        <span hidden id="idJogo"></span>
                         <div class="max-width section-row-gap-25">
                             <div class="truncate-title-item">
-                                <span>Devil May Cry</span>
+                                <span id="nomeJogo"></span>
                             </div>
                             <div class="truncate-title-item">
-                                <span>85</span>
+                                <span id="valor"></span>
                             </div>
                         </div>
-                        <iframe class="width-250px heigth-200px"
-                            src="https://www.youtube.com/embed/OgfXeUldLt4" 
-                            frameborder="0" allowfullscreen>
-                        </iframe>
-                        <button id="maisDetalhesLancamento" class="truncate-title">Mais detalhes ...</button>
+                        <img id="imagemJogo" src=""/>
+                        <button id="maisDetalhesDestaques"
+                        class="truncate-title"
+                        onclick="carregaMaisDetalhes()">
+                            Mais detalhes ...
+                        </button>
                     </a>
                     <div class="width-2"></div>
                     <a class="section-column-gap-16 --font-size-tiny" href="javascript::void(0)">
+                        <span hidden id="idJogo"></span>
                         <div class="max-width section-row-gap-25">
                             <div class="truncate-title-item">
-                                <span>Megan Man</span>
+                                <span id="nomeJogo"></span>
                             </div>
                             <div class="truncate-title-item">
-                                <span>83</span>
+                                <span id="valor"></span>
                             </div>
                         </div>
-                        <iframe class="width-250px heigth-200px"
-                            src="https://www.youtube.com/embed/3aSC5A726f0" 
-                            frameborder="0" allowfullscreen>
-                        </iframe>
-                        <button id="maisDetalhesLancamento" class="truncate-title">Mais detalhes ...</button>
+                        <img id="imagemJogo" src=""/>
+                        <button id="maisDetalhesDestaques"
+                        class="truncate-title"
+                        onclick="carregaMaisDetalhes()">
+                            Mais detalhes ...
+                        </button>
                     </a>
                     <div class="width-2"></div>
                     <a class="section-column-gap-16 --font-size-tiny" href="javascript::void(0)">
+                        <span hidden id="idJogo"></span>
                         <div class="max-width section-row-gap-25">
                             <div class="truncate-title-item">
-                                <span>Pokémon Go</span>
+                                <span id="nomeJogo"></span>
                             </div>
                             <div class="truncate-title-item">
-                                <span>95</span>
+                                <span id="valor"></span>
                             </div>
                         </div>
-                        <iframe class="width-250px heigth-200px"
-                            src="https://www.youtube.com/embed/yQCREgz4tQY" 
-                            frameborder="0" allowfullscreen>
-                        </iframe>
-                        <button id="maisDetalhesLancamento" class="truncate-title">Mais detalhes ...</button>
+                        <img id="imagemJogo" src=""/>
+                        <button id="maisDetalhesDestaques"
+                        class="truncate-title"
+                        onclick="carregaMaisDetalhes()">
+                            Mais detalhes ...
+                        </button>
                     </a>
                 </div>
                 <div class="section-row-gap-16 section-column-xs">
                     <a class="section-column-gap-16 --font-size-tiny" href="javascript::void(0)">
+                        <span hidden id="idJogo"></span>
                         <div class="section-row-gap-8">
                             <div class="truncate-title-item">
-                                <span>Legend of Zelda</span>
+                                <span id="nomeJogo"></span>
                             </div>
                             <div class="truncate-title-item">
-                                <span>98</span>
+                                <span id="valor"></span>
                             </div>
                         </div>
-                        <iframe class="width-250px heigth-200px"
-                            src="https://www.youtube.com/embed/zw47_q9wbBE" 
-                            frameborder="0" allowfullscreen>
-                        </iframe>
-                        <button id="maisDetalhesLancamento" class="truncate-title">Mais detalhes ...</button>                        
+                        <img id="imagemJogo" src=""/>
+                        <button id="maisDetalhesDestaques"
+                        class="truncate-title"
+                        onclick="carregaMaisDetalhes()">
+                            Mais detalhes ...
+                        </button>                      
                     </a>
                     <div class="width-2"></div>
                     <a class="section-column-gap-16 --font-size-tiny" href="javascript::void(0)">
+                        <span hidden id="idJogo"></span>
                         <div class="section-row-gap-16">
                             <div class="truncate-title-item">
-                                <span>Spider Man 2</span>
+                                <span id="nomeJogo"></span>
                             </div>
                             <div class="truncate-title-item">
-                                <span>85</span>
+                                <span id="valor"></span>
                             </div>
                         </div>
-                        <iframe class="width-250px heigth-200px"
-                            src="https://www.youtube.com/embed/qIQ3xNqkVC4" 
-                            frameborder="0" allowfullscreen>
-                        </iframe>
-                        <button id="maisDetalhesLancamento" class="truncate-title">Mais detalhes ...</button>
+                        <img id="imagemJogo" src=""/>
+                        <button id="maisDetalhesDestaques"
+                        class="truncate-title"
+                        onclick="carregaMaisDetalhes()">
+                            Mais detalhes ...
+                        </button>
                     </a>
                     <div class="width-2"></div>
                     <a class="section-column-gap-16 --font-size-tiny" href="javascript::void(0)">
+                        <span hidden id="idJogo"></span>
                         <div class="section-row-gap-16">
                             <div class="truncate-title-item">
-                                <span>Death Stranding</span>
+                                <span id="nomeJogo"></span>
                             </div>
                             <div class="truncate-title-item">
-                                <span>90</span>
+                                <span id="valor"></span>
                             </div>
                         </div>
-                        <iframe class="width-250px heigth-200px"
-                            src="https://www.youtube.com/embed/tCI396HyhbQ" 
-                            frameborder="0" allowfullscreen>
-                        </iframe>
-                        <button id="maisDetalhesLancamento" class="truncate-title">Mais detalhes ...</button>
+                        <img id="imagemJogo" src=""/>
+                        <button id="maisDetalhesDestaques"
+                        class="truncate-title"
+                        onclick="carregaMaisDetalhes()">
+                            Mais detalhes ...
+                        </button>
                     </a>
                     <div class="width-2"></div>
                     <a class="section-column-gap-16 --font-size-tiny" href="javascript::void(0)">
+                        <span hidden id="idJogo"></span>
                         <div class="section-row-gap-16">
                             <div class="truncate-title-item">
-                                <span>FIFA 2022 </span>
+                                <span id="nomeJogo"></span>
                             </div>
                             <div class="truncate-title-item">
-                                <span>84</span>
+                                <span id="valor"></span>
                             </div>
                         </div>
-                        <iframe class="width-250px heigth-200px"
-                            src="https://www.youtube.com/embed/o1igaMv46SY" 
-                            frameborder="0" allowfullscreen>
-                        </iframe>
-                        <button id="maisDetalhesLancamento" class="truncate-title">Mais detalhes ...</button>
+                        <img id="imagemJogo" src=""/>
+                        <button id="maisDetalhesDestaques"
+                        class="truncate-title"
+                        onclick="carregaMaisDetalhes()">
+                            Mais detalhes ...
+                        </button>
                     </a>
                 </div>
                 <div class="section-row-flex-end-left">
-                    <button class="button-mais-lancamentos-plataformas">+ Carregar mais laçamentos</button>
+                    <button id="maisLancamentos" class="button-mais-lancamentos-plataformas"
+                    onclick="carregaMaisLancamentos()">
+                        + Carregar mais laçamentos
+                    </button>
                 </div>
             </div>
         </section>
