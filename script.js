@@ -23,7 +23,7 @@ function carregaInfoDestaques () {
             let response = JSON.parse(this.responseText);
             console.log
         }
-        http.open("GET", "https://api.rawg.io/api/games/{"+JOGO_DESTAQUE+"}?key="+API_KEY);
+        http.open("GET", "https://api.rawg.io/api/games/"+JOGO_DESTAQUE+"?key="+API_KEY);
         // http.setRequestHeader(API_KEY);
         http.send();
         // infos = realizarRequisicao(http, "GET", "https://api.rawg.io/api/games/"+JOGO_DESTAQUE[i]);
