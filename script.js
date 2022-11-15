@@ -21,7 +21,7 @@ function carregaInfoDestaques () {
         let http = new XMLHttpRequest();
         http.onload = function () {
             let response = JSON.parse(this.responseText);
-            console.log
+            console.log(response);
         }
         http.open("GET", "https://api.rawg.io/api/games/"+JOGO_DESTAQUE+"?key="+API_KEY);
         // http.setRequestHeader(API_KEY);
