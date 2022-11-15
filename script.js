@@ -19,13 +19,14 @@ function carregaInfoDestaques () {
 
     // for (let i = 0; i < JOGO_DESTAQUE.length; i++) {
         let http = new XMLHttpRequest();
+        http.open('GET', 'https://api.rawg.io/api/games/'+JOGO_DESTAQUE+'?key='+API_KEY);
+        http.send();
+
         http.onload = function () {
             let response = JSON.parse(this.responseText);
             console.log(response);
-        }
-        http.open("GET", "https://api.rawg.io/api/games/"+JOGO_DESTAQUE+"?key="+API_KEY);
-        // http.setRequestHeader(API_KEY);
-        http.send();
+            document.getElementById("nomeJogo").innerHTML = response.nameOriginal;
+        };
         // infos = realizarRequisicao(http, "GET", "https://api.rawg.io/api/games/"+JOGO_DESTAQUE[i]);
         // infoGenero = realizarRequisicao("GET", "https://api.rawg.io/api/genres/"+JOGO_DESTAQUE[i]);
         // infoPublisher = realizarRequisicao("GET", "https://api.rawg.io/api/publishers/"+JOGO_DESTAQUE[i]);
