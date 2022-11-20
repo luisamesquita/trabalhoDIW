@@ -1,3 +1,4 @@
+// https://api.rawg.io/api/games/{id}/suggested
 let JOGO_DESTAQUE = ['a-plague-tale-requiem',
                     'super-mario-3d-world-bowsers-fury', 
                     'god-of-war-2',
