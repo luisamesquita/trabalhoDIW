@@ -20,8 +20,10 @@
     --font-size-tiny: 12px;
     --font-size-medium: 14px;
     --font-size-big: 16px;
+    --font-size-big-big: 20px;
     --font-size-title-medium: 24px;
     --font-size-title-big: 32px;
+    --font-size-title-big-big: 38px;
 
     --font-weight-ligth: 300;
     --font-weight-heavy: 700;
@@ -34,13 +36,23 @@ body {
     color: var(--first-color);
 }
 
+h6 {
+    font-size: var(--font-size-medium) !important;
+    color: var(--first-color) !important;
+    margin: 0 !important;
+}
 
+h1,
 h2,
 h3, 
 h4 {
     font-weight: var(--font-weight-heavy) !important;
     color: var(--first-color) !important;
     margin: 0 !important;
+}
+
+h1 {
+    font-size: var(--font-size-title-big-big);
 }
 
 h2 {
@@ -57,6 +69,7 @@ h5 {
     color: var(--seventh-color) !important;
     font-style: italic !important;
 }
+
 
 button {
     display: flex;
@@ -183,6 +196,13 @@ a {
     align-items: flex-start;
     justify-content: left;
     gap: 35px;
+}
+
+.section-row-gap-45 {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 45px;
 }
 
 .section-row-gap-50 {
@@ -411,6 +431,15 @@ a {
     font-weight: var(--font-weight-heavy);
 }
 
+.trucante-detalhes {
+    display: block;
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+    -webkit-line-clamp: 7;
+    text-overflow: ellipsis;
+    text-align: justify;
+}
+
 /* Cores de Fundo*/
 
 .background-purple {
@@ -465,6 +494,15 @@ a {
     height: 410px;
 }
 
+.height-450px {
+    height: 450px;
+}
+
+.height-100 {
+    height: 590px;
+}
+
+
 .width-5px {
     width: 5px;
 }
@@ -485,7 +523,7 @@ a {
     width: 140%;
 }
 
-.width-50 {
+.width-75 {
     width: 75%;
 }
 
@@ -518,6 +556,16 @@ a {
 .font-titulo-lancamentos {
     font-weight: var(--font-weight-heavy) !important;
     font-size: var(--font-size-title-medium) !important;
+}
+
+.font-titulo-detalhes {
+    font-size: var(--font-size-big-big) !important;
+    font-weight: var(--font-weight-heavy) !important;
+}
+
+
+.font-descricao-detalhes {
+    font-size: var(--font-size-big-big) !important;
 }
 
 /* Botão */

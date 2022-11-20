@@ -57,199 +57,42 @@
         <!-- Fim Cabeçalho -->
        
         <!-- Inicio Seção Destaques -->
-
-        <script>
-            carregaInfoDestaques();
-        </script>
-
         <section
             id="secaoDestaques" class="section background-purple">
             <div class="section-inner section-column-gap-25 width-100">
                 <header class="text-align-center">
                     <h2>Destaques</h2>
                 </header>
+                <script>
+                    carregaInfoDestaques();
+                </script>
                 <div id="secao-destaque-jogos" 
                     class="carousel section-column-gap-25 slide"
                     data-bs-ride="carousel">
-                    <div class="carousel-inner">
+                    <div id="destaques" class="carousel-inner">
+
                         <div class="carousel-item active">
-                            <article value="resident-evil-2-2019" class="section-row-gap-50 section-column-xxs height-200px-xxxxs">
-                                <img id="imagemJogo" src=""/>
-                                <section class="width-100 section-column-gap-25">
-                                    <span hidden id="idJogo"></span>
-                                    <header>
-                                        <h3 id="nomeJogo">
-                                        </h3>
-                                    </header>
-                                    <div class="section-column-gap-16">
-                                        <div id="descricao" class="truncate-description">
-                                            <span class="font-weight-700">Sobre: </span>
-                                        </div>
-                                        <div class="section-row-gap-35 section-column-xxs">
-                                            <div class="truncate-title">
-                                                <span class="font-weight-700">Publisher: </span>
-                                                <span id="publisher"></span>
-                                            </div>
-                                            <div class="truncate-title">
-                                                <span class="font-weight-700">Lançamento: </span>
-                                                <span id="lancamento"></span>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <span class="font-weight-700">Plataformas: </span>
-                                            <span id="plataformas"></span>
-                                        </div>
-                                        <div>
-                                            <span class="font-weight-700">Gênero: </span>
-                                            <span id="genero"></span>
-                                        </div>
-                                        <div>
-                                            <span class="font-weight-700">Avaliação: </span>
-                                            <span id="avaliacao" class="font-score"></span>
-                                        </div>
-                                        <div class="section-row-flex-end-left">
-                                            <button id="maisDetalhes"
-                                            class="truncate-title"
-                                            onclick="carregaMaisDetalhes()">
-                                                Mais detalhes ...
-                                            </button>
-                                        </div>
-                                    </div>
-                                </section>
-                            </article>
-                        </div>
-                        <div class="carousel-item">
-                            <article value="super-mario-3d-world-bowsers-fury" class="section-row-gap-50 section-column-xxs height-200px-xxxxs">
-                                <img id="imagemJogo" src=""/>
-                                <section class="width-100 section-column-gap-25">
+                            <article value="resident-evil-2-2019" 
+                            class="section-row-gap-50 section-column-xxs height-200px-xxxxs">
+                                <img id="imagemJogo" src="" 
+                                width="320" height="205"/>
+                                <section class="width-250px section-column-gap-25">
                                     <span hidden id="idJogo"></span>
                                     <header>
                                         <h3 id="nomeJogo"></h3>
                                     </header>
-                                    <div class="section-column-gap-16">
-                                        <div id="descricao" class="truncate-description">
-                                            <span class="font-weight-700">Sobre: </span>
-                                        </div>
-                                        <div class="section-row-gap-35 section-column-xxs">
-                                            <div class="truncate-title">
-                                                <span class="font-weight-700">Publisher: </span>
-                                                <span id="publisher"></span>
-                                            </div>
-                                            <div class="truncate-title">
-                                                <span class="font-weight-700">Lançamento: </span>
-                                                <span id="lancamento"></span>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <span class="font-weight-700">Plataformas: </span>
-                                            <span id="plataformas"></span>
-                                        </div>
-                                        <div id="genero">
-                                            <span class="font-weight-700">Gênero: </span>
-                                            <span id="genero"></span>
-                                        </div>
-                                        <div>
-                                            <span class="font-weight-700">Avaliação: </span>
-                                            <span id="avaliacao" class="font-score"></span>
-                                        </div>
-                                        <div class="section-row-flex-end-left">
-                                            <button id="maisDetalhes"
-                                            class="truncate-title"
-                                            onclick="carregaMaisDetalhes()">
-                                                Mais detalhes ...
-                                            </button>
-                                        </div>
+                                    <div class="truncate-title">
+                                        <span class="font-weight-700">Lançamento: </span>
+                                        <span id="lancamento"></span>
                                     </div>
-                                </section>
-                            </article>
-                        </div>
-                        <div class="carousel-item">
-                            <article value="god-of-war-2" class="section-row-gap-50 section-column-xxs height-200px-xxxxs">
-                                <img id="imagemJogo" src=""/>
-                                <section class="width-100 section-column-gap-25">
-                                    <span hidden id="idJogo"></span>
-                                    <header>
-                                        <h3 id="nomeJogo"></h3>
-                                    </header>
-                                    <div class="section-column-gap-16">
-                                        <div id="descricao" class="truncate-description">
-                                            <span class="font-weight-700">Sobre: </span>
-                                        </div>
-                                        <div class="section-row-gap-35 section-column-xxs">
-                                            <div class="truncate-title">
-                                                <span class="font-weight-700">Publisher: </span>
-                                                <span id="publisher"></span>
-                                            </div>
-                                            <div class="truncate-title">
-                                                <span class="font-weight-700">Lançamento: </span>
-                                                <span id="lancamento"></span>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <span class="font-weight-700">Plataformas: </span>
-                                            <span id="plataformas"></span>
-                                        </div>
-                                        <div id="genero">
-                                            <span class="font-weight-700">Gênero: </span>
-                                            <span id="genero"></span>
-                                        </div>
-                                        <div>
-                                            <span class="font-weight-700">Avaliação: </span>
-                                            <span id="avaliacao" class="font-score"></span>
-                                        </div>
-                                        <div class="section-row-flex-end-left">
-                                            <button id="maisDetalhes"
-                                            class="truncate-title"
-                                            onclick="carregaMaisDetalhes()">
-                                                Mais detalhes ...
-                                            </button>
-                                        </div>
+                                    <div>
+                                        <span class="font-weight-700">Avaliação: </span>
+                                        <span id="avaliacao" class="font-score"></span>
                                     </div>
-                                </section>
-                            </article>
-                        </div>
-                        <div class="carousel-item">
-                            <article value="hollow-knight" class="section-row-gap-50 section-column-xxs height-200px-xxxxs">
-                                <img id="imagemJogo" src=""/>
-                                <section class="width-100 section-column-gap-25">
-                                    <span hidden id="idJogo"></span>
-                                    <header>
-                                        <h3 id="nomeJogo"></h3>
-                                    </header>
-                                    <div class="section-column-gap-16">
-                                        <div id="descricao" class="truncate-description">
-                                            <span class="font-weight-700">Sobre: </span>
-                                        </div>
-                                        <div class="section-row-gap-35 section-column-xxs">
-                                            <div class="truncate-title">
-                                                <span class="font-weight-700">Publisher: </span>
-                                                <span id="publisher"></span>
-                                            </div>
-                                            <div class="truncate-title">
-                                                <span class="font-weight-700">Lançamento: </span>
-                                                <span id="lancamento"></span>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <span class="font-weight-700">Plataformas: </span>
-                                            <span id="plataformas"></span>
-                                        </div>
-                                        <div id="genero">
-                                            <span class="font-weight-700">Gênero: </span>
-                                            <span id="genero"></span>
-                                        </div>
-                                        <div>
-                                            <span class="font-weight-700">Avaliação: </span>
-                                            <span id="avaliacao" class="font-score"></span>
-                                        </div>
-                                        <div class="section-row-flex-end-left">
-                                            <button id="maisDetalhes"
-                                            class="truncate-title"
-                                            onclick="carregaMaisDetalhes()">
-                                                Mais detalhes ...
-                                            </button>
-                                        </div>
-                                    </div>
+                                    <a id="referencia" href=""
+                                    class="section-row-flex-end-left truncate-title">
+                                        Mais detalhes ...
+                                    </a>
                                 </section>
                             </article>
                         </div>
@@ -277,11 +120,6 @@
             </div>
         </section>
         <!-- Fim Seção Destaques -->
-
-
-        <script>
-            carregaInfoLancamentos();
-        </script>
 
         <!-- Inicio Seção Lançamentos -->
         <section id = "secao-lancamentos" class="section background-orange">
