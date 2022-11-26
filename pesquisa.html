@@ -18,7 +18,7 @@
         <!-- Inicio Cabeçalho -->
         <nav class="navigation-menu">
             <div class="section-row-flex-start section-row-center-xxxs">
-                <a href="#secao-destaques">
+                <a href="index.html?#secao-destaques">
                     <img 
                         class="height-60px image-no-background" 
                         src="img/controle-de-video-game.png"
@@ -28,31 +28,51 @@
             </div>
             <ul class="section navigation-anchor hide-xs">
                 <li class="anchor-item">
-                    <a href="#secao-destaques">destaques</a>
+                    <a href="index.html?#secao-destaques">destaques</a>
                 </li>
                 <li class="anchor-item">
-                    <a href="#secao-lancamentos">lançamentos</a>
+                    <a href="index.html?#secao-generos">gêneros</a>
                 </li>
-                <li class="anchor-item">
+                <!-- <li class="anchor-item">
                     <a href="#secao-plataformas">plataformas</a>
                 </li>
                 <li class="anchor-item">
                     <a href="#secao-publishers">publishers</a>
-                </li>
+                </li> -->
             </ul>
             <div class="section-row-flex-end hide-xxxs">
-                <div class="search-input">
-                    <button>
-                        <img src="img/search.svg">
-                    </button>
-                    <input type="text" placeholder="Pesquisar games">
-                    <button>
+            </div>
+        </nav>
+
+        <section id="barraPesquisa" class="section background-purple">
+            <div class="section-inner section-column-gap-25 width-100">
+                <div id="sectionPesquisar" class="search-input">
+                    <button id="limpar" type="reset" onclick="limpar()">
                         <img src="img/close.svg">
+                    </button>
+                    <input id="inputPesquisarJogo" type="text" placeholder="Pesquisar game"
+                        aria-label="Pesquisar game">
+                    <button id ="pesquisar" type="submit" onclick="carregaPesquisa()">
+                        <img src="img/search.svg">
                     </button>
                 </div>
             </div>
-        </nav>
-        
+        </section>
+
+        <section id="secaoPesquisa" class="section background-purple">
+            <div class="section-inner section-column-gap-35 width-100">
+                <div class="section-row-space-between-direction">
+                    <header class="text-align-center">
+                        <h2>Resultados da Pesquisa</h2>
+                    </header>
+                </div>
+                <div id="cardsPesquisas" class="row">
+            
+                </div>
+            </div>
+        </section>
+
+
         <!-- Inicio Rodape -->
         <footer class="rodape">
             <div class="section section-row-space-between">

@@ -14,6 +14,7 @@
     --fifth-color: #8B0A50;
     --sixth-color: #FFE4C4;
     --seventh-color: #4F4F4F;
+    --eigth-color: #C1FFC1;
     
     --font-family: 'Roboto Condensed', 'sans-serif';
 
@@ -102,7 +103,7 @@ a {
 .section {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center !important;
     width: 100%;
 }
 
@@ -280,7 +281,7 @@ a {
     position: fixed;
     z-index: 10;
     display: flex;
-    align-items: center;
+    align-items: center !important;
     gap: 25px;
     background-color: var(--second-color);
     padding: 16px;
@@ -318,7 +319,7 @@ a {
     border: 1px solid var(--first-color);
     border-radius: 5px;
     background-color: var(--third-color);
-    width: 250px;
+    width: 300px;
     height: 35px;
 }
 
@@ -329,6 +330,7 @@ a {
     font-weight: var(--font-weight-heavy);
 
 }
+
 
 
 /* Carousel */
@@ -443,7 +445,7 @@ a {
 /* Cores de Fundo*/
 
 .background-purple {
-    background-color: var(--fourth-color);
+    background-color: var(--fourth-color) !important;
 }
 
 .background-orange {
@@ -452,6 +454,10 @@ a {
 
 .background-blue {
     background-color: var(--second-color);
+}
+
+.background-pastel {
+    background-color: var(--eigth-color) !important;
 }
 
 /* Alinhamento de texto */
