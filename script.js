@@ -27,18 +27,18 @@ function carregaInfoDestaques () {
                     document.getElementById("lancamento").innerHTML = (new Date(responseDestaques.released)).getDate() 
                                                                 + "/" + (new Date(responseDestaques.released)).getMonth() 
                                                                 + "/" + (new Date(responseDestaques.released)).getFullYear();
-                    document.getElementById("avaliacao").innerHTML = responseDestaques.metacritic;
+                    document.getElementById("avaliacao").innerHTML = (responseDestaques.metacritic != null || responseDestaques.metacritic != "") ? responseDestaques.metacritic : "-";
                     document.getElementById("referencia").href = "detalhes.html?id="+responseDestaques.id;
                 } else {
                     html = `<div class="carousel-item">
-                            <article class="section-row-gap-50 section-column-xxs height-200px-xxxxs">
-                                <body background="${responseDestaques.background_image_additional}">
-                                    <img id="imagemJogo" src="${responseDestaques.background_image}"
-                                        width="320" height="205"/>
-                                    <section class="width-250px section-column-gap-25">
-                                        <header>
-                                            <h3 id="nomeJogo">${responseDestaques.name_original}</h3>
-                                        </header>
+                            <article class="section-row-gap-50 section-column-xxs">
+                                <img id="imagemJogo" src="${responseDestaques.background_image}"
+                                    width="250" height="200"/>
+                                <section class="width-100px section-column-gap-25">
+                                    <header>
+                                        <h3 id="nomeJogo">${responseDestaques.name_original}</h3>
+                                    </header>
+                                    <div class="section-column-gap-16">
                                         <div class="truncate-title">
                                             <span class="font-weight-700">Lançamento: </span>
                                             <span id="lancamento">
@@ -47,16 +47,20 @@ function carregaInfoDestaques () {
                                                 (new Date(responseDestaques.released)).getFullYear()}
                                             </span>
                                         </div>
-                                        <div>
-                                            <span class="font-weight-700">Avaliação: </span>
-                                            <span id="avaliacao" class="font-score">${responseDestaques.metacritic}</span>
+                                        <div class="section-row-gap-16 section-column-xxs">
+                                            <div class="truncate-title">
+                                                <span class="font-weight-700">Avaliação: </span>
+                                                <span id="avaliacao" class="font-score">${(responseDestaques.metacritic != null || responseDestaques.metacritic != "") ? responseDestaques.metacritic : "-"}</span>
+                                            </div>        
                                         </div>
-                                        <a href="detalhes.html?id=${responseDestaques.id}"
-                                            class="section-row-flex-end-left truncate-title">
-                                            Mais detalhes ...
-                                        </a>
-                                    </section>
-                                </body>
+                                        <div class="section-row-gap-8">
+                                            <a href="detalhes.html?id=${responseDestaques.id}"
+                                                class="section-row-flex-end-left truncate-title">
+                                                Mais detalhes ...
+                                            </a>
+                                        </div>
+                                    </div>
+                                </section>
                             </article>
                         </div>`;
                 }
@@ -75,26 +79,20 @@ function carregaMaisDetalhes () {
     let response;
     http.onload = function () {
         response = JSON.parse(http.responseText);
+        let avaliacao = (response.metacritic != null || response.metacritic != "") ? response.metacritic : "-";
+        let developers = response.developers.map(i => (i.name != null || i.name != "") ? i.name : "-").toString();
+        let plataforms = response.platforms.map(i => (i.platform.name != null || i.platform.name != "") ? i.platform.name : "-").toString();
+        let genero = response.genres.map(i => (i.name != null || i.name != "") ? i.name : "-").toString();
+        let lojas = response.stores.map(i => (i.store.name != null || i.store.name != "") ? i.store.name : "-").toString();
         document.getElementById("imagemJogo").src = response.background_image_additional;
         document.getElementById("nomeJogo").innerHTML = response.name_original;
         document.getElementById("lancamento").innerHTML = (new Date(response.released)).getDate() + "/" + (new Date(response.released)).getMonth() + "/" + (new Date(response.released)).getFullYear();
-        document.getElementById("avaliacao").innerHTML = response.metacritic;
+        document.getElementById("avaliacao").innerHTML = avaliacao;
         document.getElementById("descricaoJogo").innerHTML = response.description;
-        document.getElementById("publisher").innerHTML = response.developers.map(i => i.name).toString();
-        document.getElementById("plataformas").innerHTML = response.platforms.map(i => i.platform.name).toString();
-        document.getElementById("genero").innerHTML = response.genres.map(i => i.name).toString();
-        document.getElementById("avaliacao").innerHTML = response.metacritic;
-        document.getElementById("lojas").innerHTML = response.stores.map(i => i.store.name).toString();
-        if (response.website != null) {
-            document.getElementById("linkSite").innerHTML += 
-                `<a href="${response.website}" 
-                    class="section-row-flex-end-left truncate-title font-descricao-detalhes">
-                    ${response.website}
-                </a>`
-        } else {
-            document.getElementById("linkSite").innerHTML += 
-                `<span class="font-descricao-detalhes"> N/A</span>`
-        }
+        document.getElementById("publisher").innerHTML = developers;
+        document.getElementById("plataformas").innerHTML = plataforms;
+        document.getElementById("genero").innerHTML = genero;
+        document.getElementById("lojas").innerHTML = lojas;
     }
 
     http.open("GET", "https://api.rawg.io/api/games/"+idJogo+'?key='+API_KEY);
@@ -116,7 +114,7 @@ function carregaInfoGeneros() {
                     </div>
                 </div>
                 <img 
-                    width="280" height="205"
+                    width="250" height="200"
                     src="${response[i].image_background}"
                 />
                 <span class="font-weight-700">Principais Jogos</span>
@@ -157,9 +155,9 @@ function carregaPesquisa() {
                 } else { i = x;}
                 responsePesquisa.results.forEach(jogo => {
                     let avaliacao = (jogo.metacritic != null) ? jogo.metacritic : "-";
-                    let genero = jogo.genres.map(i => i.name != null ? i.name : "-").toString();
+                    let genero = jogo.genres.map(i => (i.name != null || i.name != "") ? i.name : "-").toString();
                     document.getElementById("cardsPesquisas").innerHTML +=
-                    `<div class="card row-8 my-4 mx-4 col-sm-3 background-pastel" >
+                    `<div class="card row-8 my-1 mx-1 col-sm-3 background-pastel" >
                         <img src="${jogo.background_image}" class="card-img-top">
                         <div class="card-body">
                             <h3 class="card-title">${jogo.name}</h5>
