@@ -315,11 +315,11 @@ a {
 .search-input {
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: center !important;
     border: 1px solid var(--first-color);
     border-radius: 5px;
     background-color: var(--third-color);
-    width: 300px;
+    width: 250px;
     height: 35px;
 }
 
@@ -641,4 +641,10 @@ a {
     .height-200px-xxxxs {
         height: 200px;
     }
+}
+
+.card-img-top{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
 }

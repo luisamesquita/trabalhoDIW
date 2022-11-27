@@ -85,15 +85,16 @@ function carregaMaisDetalhes () {
         document.getElementById("genero").innerHTML = response.genres.map(i => i.name).toString();
         document.getElementById("avaliacao").innerHTML = response.metacritic;
         document.getElementById("lojas").innerHTML = response.stores.map(i => i.store.name).toString();
-        document.getElementById("maisDetalhes").innerHTML += `<div class="section-row-gap-35">
-                <div class="trucante-detalhes">
-                    <span class="font-titulo-detalhes">Link Site: </span>
-                    <a href="${response.website}" 
-                        class="section-row-flex-end-left truncate-title font-descricao-detalhes">
-                         ${response.website}
-                    </a>
-                </div>
-            </div>`;
+        if (response.website != null) {
+            document.getElementById("linkSite").innerHTML += 
+                `<a href="${response.website}" 
+                    class="section-row-flex-end-left truncate-title font-descricao-detalhes">
+                    ${response.website}
+                </a>`
+        } else {
+            document.getElementById("linkSite").innerHTML += 
+                `<span class="font-descricao-detalhes"> N/A</span>`
+        }
     }
 
     http.open("GET", "https://api.rawg.io/api/games/"+idJogo+'?key='+API_KEY);
