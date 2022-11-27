@@ -79,7 +79,7 @@ function carregaMaisDetalhes () {
     let response;
     http.onload = function () {
         response = JSON.parse(http.responseText);
-        let avaliacao = (response.metacritic != null || response.metacritic != "") ? response.metacritic : "-";
+        let avaliacao = response.metacritic !== null ? response.metacritic : "-";
         let developers = response.developers.map(i => (i.name != null || i.name != "") ? i.name : "-").toString();
         let plataforms = response.platforms.map(i => (i.platform.name != null || i.platform.name != "") ? i.platform.name : "-").toString();
         let genero = response.genres.map(i => (i.name != null || i.name != "") ? i.name : "-").toString();
